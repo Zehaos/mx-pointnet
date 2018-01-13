@@ -6,6 +6,8 @@ import config
 sys.path.insert(0, config.mxnet_path)
 import mxnet as mx
 from core.solver import Solver
+from core.metric import AccMetric, MatLossMetric
+
 from symbol import *
 from dataset import dummy_iterator
 import provider
@@ -60,9 +62,11 @@ def main(config):
     optimizer_params = {'learning_rate': config.lr,
                         'lr_scheduler': lr_scheduler}
     optimizer = "adam"
-    eval_metric = ['acc']
+
+    eval_metrics = mx.metric.CompositeEvalMetric()
     if config.dataset == "modelnet40":
-        eval_metric.append(mx.metric.create('top_k_accuracy', top_k=5))
+        for m in [AccMetric, MatLossMetric]:
+            eval_metrics.add(m())
 
     solver = Solver(symbol=symbol,
                     data_names=data_names,
@@ -81,7 +85,7 @@ def main(config):
                                                              config.model_load_epoch)
     solver.fit(train_data=train,
                eval_data=val,
-               eval_metric=eval_metric,
+               eval_metric=eval_metrics,
                epoch_end_callback=epoch_end_callback,
                batch_end_callback=batch_end_callback,
                initializer=initializer,
