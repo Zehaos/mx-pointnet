@@ -17,6 +17,17 @@ The official implementation is avaliable [here](https://github.com/charlesq34/po
 - ```python train.py```
 - ```python test.py```
 
+## Performance
+
+### Classification
+
+
+| Modelnet40 | Top1-Acc|
+|:---:|:---:|
+| Ours| 87.2 |
+| Reference[1]| 89.2 |
+
+
 ## Reference
 [1] Charles R. Qi, et al. "PointNet: Deep Learning on Point Sets for 3D Classification and Segmentation" https://arxiv.org/abs/1612.00593 (2016).
 
