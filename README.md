@@ -1,4 +1,4 @@
-# mx-pointnet
+# mx-pointnet(in progress)
 
 This repository contains a [MXNet](https://github.com/apache/incubator-mxnet) implementation for the [Pointnet](https://arxiv.org/abs/1612.00593).
 The official implementation is avaliable [here](https://github.com/charlesq34/pointnet).
