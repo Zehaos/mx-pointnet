@@ -4,7 +4,7 @@ dataset = "modelnet40"
 model_prefix = "pointnet"
 network = "pointnet"
 model_load_prefix = model_prefix
-model_load_epoch = 38
+model_load_epoch = 250
 retrain = False
 
 batch_size = 32
