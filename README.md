@@ -24,7 +24,7 @@ The official implementation is avaliable [here](https://github.com/charlesq34/po
 
 | Modelnet40 | Top1-Acc|
 |:---:|:---:|
-| Ours| 87.2 |
+| Ours| 88.0 |
 | Reference[1]| 89.2 |
 
 
